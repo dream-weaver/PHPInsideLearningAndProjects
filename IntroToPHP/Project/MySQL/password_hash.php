@@ -32,12 +32,29 @@
                 /*$password = password_hash("mypassword", PASSWORD_DEFAULT);
                 echo $password;*/
                 $hashedPassword = '$2y$10$RhbPevAS4kn9xpy1J/4Gye68HB6RyjmtHOsTp9xVFMxnmwBfFifeq';
-                if(password_verify("mypassword", $hashedPassword)){
-                    echo "Correct Password";
-                }else{
-                    echo "Incorrect Password";
+                if(isset($_POST["submit"])){
+                        if(password_verify($_POST["password"], $hashedPassword)){
+                        echo "Correct Password";
+                    }else{
+                        echo "Incorrect Password";
+                    }
                 }
             ?>
+            <form class="form-horizontal" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                 <div class="form-group">
+                    <label for="inputPassword" class="control-label col-xs-2">Password</label>
+                    <div class="col-xs-10">
+                        <small class="text-danger"></small>
+                        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <input type="submit" class="btn btn-primary" name="submit">
+                    </div>
+                </div>
+            </form>
+            
         </div>
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
