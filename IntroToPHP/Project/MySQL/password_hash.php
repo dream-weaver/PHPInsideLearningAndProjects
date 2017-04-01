@@ -29,8 +29,8 @@
         <div class="container">
             <h3><?php echo (TITLE); ?></h1>
             <?php
-                /*$password = password_hash("mypassword", PASSWORD_DEFAULT);
-                echo $password;*/
+                //$password = password_hash("tanvir", PASSWORD_DEFAULT);
+            //    var_dump($password);
                 $hashedPassword = '$2y$10$RhbPevAS4kn9xpy1J/4Gye68HB6RyjmtHOsTp9xVFMxnmwBfFifeq';
                 if(isset($_POST["submit"])){
                         if(password_verify($_POST["password"], $hashedPassword)){
@@ -39,6 +39,7 @@
                         echo "Incorrect Password";
                     }
                 }
+                
             ?>
             <form class="form-horizontal" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                  <div class="form-group">
